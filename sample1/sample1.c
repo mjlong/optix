@@ -105,7 +105,8 @@ int main(int argc, char* argv[])
     RT_CHECK_ERROR( rtContextSetRayGenerationProgram( context, 0, ray_gen_program ) );
     /*Conclude from the above example
     * 1. Create program, typically from .ptx file generated from .cu file
-    * 2. declare(bind) variables to the program; these variables are required for the program but not in the argument list, they are global in .cu instead. 
+    * 2. declare(bind) variables to the program; these variables are required for the program 
+    *    but not in the argument list, they are global in .cu instead. 
     * 3. set value to the variables
     * 4. bind program to context
     */
