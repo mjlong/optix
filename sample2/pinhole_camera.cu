@@ -72,6 +72,7 @@ RT_PROGRAM void pinhole_camera()
   output_buffer[launch_index] = make_color( make_float3(  pixel_time ) ); 
 #else
   output_buffer[launch_index] = make_color( prd.result );
+  /*ray_gen_program assigns RT_BUFFER_OUTPUT buffer*/
 #endif
 }
 
