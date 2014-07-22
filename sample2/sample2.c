@@ -103,7 +103,35 @@ int main(int argc, char* argv[])
     createContext( &context, &output_buffer_obj );
     createGeometry( context, &box );
     createMaterial( context, &material);
+
+	/*For geometry and material
+	*create geometry
+	*create from file -- setBoundingBox
+	*rtGeometrySetBoundingBoxProgram
+	*create from file -- setIntersection
+	*rtGeometrySetIntersectionProgram
+	*declare box variables
+	*set box variables
+
+	*create from file -- closest hit program
+	*create from file -- any hit program
+	*create material
+	*rtMaterialSetClosestHitProgram
+	*rtMateiralSetAnyHitProgram
+	*/
+
     createInstances( context, box, material );
+	/*
+    RTGroup top_level_group
+	|                          |            |
+	RTTransform transform[0]  ...          transform[NUMBOXES-1]
+    |
+	GeometryGoup geometrygroup
+	|
+	geometryInstance instance
+	|
+	RTMaterial material (=Ray_type + hitprogram)
+	*/
 
     /* Run */
     RT_CHECK_ERROR( rtContextValidate( context ) );
@@ -255,6 +283,7 @@ void createMaterial( RTcontext context, RTmaterial* material )
      * need any_hit */
     RT_CHECK_ERROR( rtMaterialSetClosestHitProgram( *material, 0, closest_hit_program ) );
     RT_CHECK_ERROR( rtMaterialSetAnyHitProgram( *material, 1, any_hit_program ) );
+	/*rtMaterialSet***Program(&material, Ray_type, program)*/
 }
 
 void createInstances( RTcontext context, RTgeometry box, RTmaterial material )
