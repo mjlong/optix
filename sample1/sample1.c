@@ -117,11 +117,13 @@ int main(int argc, char* argv[])
     RT_CHECK_ERROR( rtContextLaunch2D( context, 0 /* entry point */, width, height ) );
 
     /* Display image */
+    /*
     if( strlen( outfile ) == 0 ) {
       RT_CHECK_ERROR( sutilDisplayBufferInGlutWindow( argv[0], buffer ) );
     } else {
       RT_CHECK_ERROR( sutilDisplayFilePPM( outfile, buffer ) );
     }
+    */
 
     /* Clean up */
     RT_CHECK_ERROR( rtBufferDestroy( buffer ) );
